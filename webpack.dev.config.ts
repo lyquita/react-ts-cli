@@ -1,3 +1,4 @@
+import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import path from "path";
 // import { Configuration, HotModuleReplacementPlugin } from "webpack";
 const HtmlWebPackPlugin = require("html-webpack-plugin");
@@ -50,6 +51,9 @@ const config: Configuration = {
         template: "./src/index.html",
       }),
       new CleanWebpackPlugin(),
+      new ForkTsCheckerWebpackPlugin({
+        async: false
+      })
     ],
 };
 

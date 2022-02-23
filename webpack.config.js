@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 module.exports = {
   entry: "/src/index.tsx",
@@ -43,5 +44,8 @@ module.exports = {
       template: "./src/index.html",
     }),
     new CleanWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      async: false
+    })
   ],
 };
